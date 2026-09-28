@@ -44,8 +44,11 @@
   @keyframes hintIn{to{opacity:1}}
 
   /* ---- character showcase ---- */
-  .char-showcase{position:fixed;bottom:120px;right:80px;width:200px;height:280px;pointer-events:none;z-index:2}
-  .char-svg{width:100%;height:100%;filter:drop-shadow(0 0 12px rgba(200,225,255,.4))}
+  .char-showcase{position:fixed;bottom:120px;right:80px;width:200px;height:280px;pointer-events:all;z-index:2;cursor:pointer}
+  .char-svg{width:100%;height:100%;filter:drop-shadow(0 0 12px rgba(200,225,255,.4));transition:filter .3s}
+  .char-showcase:hover .char-svg{filter:drop-shadow(0 0 20px rgba(200,225,255,.8))}
+  .char-showcase.active .char-svg{animation:charSlash .4s cubic-bezier(.22,.8,.3,1)}
+  @keyframes charSlash{0%{transform:rotate(-8deg) scale(.95)}50%{transform:rotate(4deg) scale(1.05)}100%{transform:rotate(0) scale(1)}}
   @media(max-width:1024px){.char-showcase{display:none}}
 
   /* ---- sound toggle ---- */
@@ -481,7 +484,8 @@ function slashSound(){
 }
 
 /* ───────────── donghua character showcase (side panel) ──────────────── */
-function createDonghuaCharacter(){
+function createDonghuaCharacter(variant = currentCharVariant){
+  const char = charVariants[variant];
   const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   svg.setAttribute('viewBox', '0 0 200 280');
   svg.setAttribute('class', 'char-svg');
@@ -489,7 +493,7 @@ function createDonghuaCharacter(){
 
   const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
   const grad = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
-  grad.setAttribute('id', 'swordGrad');
+  grad.setAttribute('id', 'swordGrad' + variant);
   grad.setAttribute('x1', '0%');
   grad.setAttribute('y1', '0%');
   grad.setAttribute('x2', '0%');
@@ -501,7 +505,7 @@ function createDonghuaCharacter(){
 
   const stop2 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
   stop2.setAttribute('offset', '100%');
-  stop2.setAttribute('stop-color', '#a8c5ff');
+  stop2.setAttribute('stop-color', char.accentColor);
 
   grad.appendChild(stop1);
   grad.appendChild(stop2);
@@ -517,22 +521,22 @@ function createDonghuaCharacter(){
   head.setAttribute('opacity', '0.95');
   svg.appendChild(head);
 
-  // Hair - long flowing
+  // Hair - long flowing with character color
   const hairPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
   hairPath.setAttribute('d', 'M 72 35 Q 65 55 68 90 Q 70 110 75 140 M 128 35 Q 135 55 132 90 Q 130 110 125 140');
-  hairPath.setAttribute('stroke', '#2a2a3a');
+  hairPath.setAttribute('stroke', char.hairColor);
   hairPath.setAttribute('stroke-width', '5');
   hairPath.setAttribute('fill', 'none');
   hairPath.setAttribute('stroke-linecap', 'round');
   svg.appendChild(hairPath);
 
-  // Eyes (anime style)
+  // Eyes (anime style) - dynamic color
   const eyeL = document.createElementNS('http://www.w3.org/2000/svg', 'ellipse');
   eyeL.setAttribute('cx', '85');
   eyeL.setAttribute('cy', '48');
   eyeL.setAttribute('rx', '6');
   eyeL.setAttribute('ry', '9');
-  eyeL.setAttribute('fill', '#4a90e2');
+  eyeL.setAttribute('fill', char.eyeColor);
   svg.appendChild(eyeL);
 
   const eyeR = document.createElementNS('http://www.w3.org/2000/svg', 'ellipse');
@@ -540,7 +544,7 @@ function createDonghuaCharacter(){
   eyeR.setAttribute('cy', '48');
   eyeR.setAttribute('rx', '6');
   eyeR.setAttribute('ry', '9');
-  eyeR.setAttribute('fill', '#4a90e2');
+  eyeR.setAttribute('fill', char.eyeColor);
   svg.appendChild(eyeR);
 
   // Eye shine (sparkle)
@@ -561,16 +565,30 @@ function createDonghuaCharacter(){
   // Robe - elegant flowing style
   const robePath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
   robePath.setAttribute('d', 'M 72 75 L 60 120 Q 55 150 60 180 Q 65 210 75 240 L 100 255 L 125 240 Q 135 210 140 180 Q 145 150 140 120 L 128 75 Q 115 80 100 80 Q 85 80 72 75 Z');
-  robePath.setAttribute('fill', '#1a2332');
-  robePath.setAttribute('stroke', '#4a7bff');
+  robePath.setAttribute('fill', char.robeColor);
+  robePath.setAttribute('stroke', char.accentColor);
   robePath.setAttribute('stroke-width', '1.5');
   svg.appendChild(robePath);
+
+  // Tattered cloth effect (wind effect)
+  const tatters = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  for (let i = 0; i < 3; i++){
+    const tatter = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    const startX = 65 + i * 20;
+    tatter.setAttribute('d', `M ${startX} 240 Q ${startX - 5} 255 ${startX - 8} 270`);
+    tatter.setAttribute('stroke', char.accentColor);
+    tatter.setAttribute('stroke-width', '1');
+    tatter.setAttribute('fill', 'none');
+    tatter.setAttribute('opacity', '0.6');
+    tatters.appendChild(tatter);
+  }
+  svg.appendChild(tatters);
 
   // Sword (held diagonally) - glowing
   const swordBlade = document.createElementNS('http://www.w3.org/2000/svg', 'path');
   swordBlade.setAttribute('d', 'M 110 30 L 160 -40 L 163 -38 L 112 35 Z');
-  swordBlade.setAttribute('fill', 'url(#swordGrad)');
-  swordBlade.setAttribute('filter', 'drop-shadow(0 0 8px #7bb6ff)');
+  swordBlade.setAttribute('fill', `url(#swordGrad${variant})`);
+  swordBlade.setAttribute('filter', `drop-shadow(0 0 8px ${char.accentColor})`);
   svg.appendChild(swordBlade);
 
   const swordHilt = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
@@ -581,19 +599,21 @@ function createDonghuaCharacter(){
   swordHilt.setAttribute('fill', '#8b6f47');
   svg.appendChild(swordHilt);
 
-  // Energy aura around character
-  const aura = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-  aura.setAttribute('cx', '100');
-  aura.setAttribute('cy', '140');
-  aura.setAttribute('r', '65');
-  aura.setAttribute('fill', 'none');
-  aura.setAttribute('stroke', '#7bb6ff');
-  aura.setAttribute('stroke-width', '1');
-  aura.setAttribute('opacity', '0.3');
-  svg.appendChild(aura);
+  // Multiple energy layers with character color
+  for (let r = 1; r <= 2; r++){
+    const aura = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    aura.setAttribute('cx', '100');
+    aura.setAttribute('cy', '140');
+    aura.setAttribute('r', 55 + r * 10);
+    aura.setAttribute('fill', 'none');
+    aura.setAttribute('stroke', char.accentColor);
+    aura.setAttribute('stroke-width', '0.5');
+    aura.setAttribute('opacity', 0.2 / r);
+    svg.appendChild(aura);
+  }
 
   // Random kanji floating around character
-  const kanji = ['劍', '冷', '天', '命', '風', '雷', '斬', '無'];
+  const kanji = ['劍', '冷', '天', '命', '風', '雷', '斬', '無', '道', '仙'];
   for (let i = 0; i < 4; i++){
     const ch = kanji[Math.floor(Math.random() * kanji.length)];
     const angle = (i / 4) * Math.PI * 2;
@@ -605,9 +625,9 @@ function createDonghuaCharacter(){
     text.setAttribute('y', y);
     text.setAttribute('font-family', 'Ma Shan Zheng, serif');
     text.setAttribute('font-size', '16');
-    text.setAttribute('fill', 'rgba(123, 182, 255, 0.4)');
+    text.setAttribute('fill', char.accentColor);
     text.setAttribute('text-anchor', 'middle');
-    text.setAttribute('opacity', '0.6');
+    text.setAttribute('opacity', '0.4');
     text.textContent = ch;
     svg.appendChild(text);
   }
@@ -615,10 +635,36 @@ function createDonghuaCharacter(){
   return svg;
 }
 
-const charContainer = document.getElementById('charShowcase');
+let currentCharVariant = 0;
+const charVariants = [
+  { name: 'Leng', hairColor: '#2a2a3a', eyeColor: '#4a90e2', robeColor: '#1a2332', accentColor: '#4a7bff', type: 'swordmaster' },
+  { name: 'Vagrant', hairColor: '#5a3a2a', eyeColor: '#d4a574', robeColor: '#3a2a1a', accentColor: '#ff9a4a', type: 'wanderer' },
+  { name: 'Thunder', hairColor: '#1a1a2a', eyeColor: '#ffd700', robeColor: '#2a1a3a', accentColor: '#ffff00', type: 'cultivator' }
+];
+
+let charContainer = document.getElementById('charShowcase');
 if (charContainer){
-  const charSvg = createDonghuaCharacter();
-  charContainer.appendChild(charSvg);
+  let currentSvg = createDonghuaCharacter();
+  charContainer.appendChild(currentSvg);
+
+  // Click to switch character variants
+  charContainer.addEventListener('click', () => {
+    charContainer.classList.add('active');
+    setTimeout(() => charContainer.classList.remove('active'), 400);
+
+    currentCharVariant = (currentCharVariant + 1) % charVariants.length;
+    charContainer.innerHTML = '';
+    currentSvg = createDonghuaCharacter();
+    charContainer.appendChild(currentSvg);
+
+    // Add tooltip showing character name
+    const tooltip = document.createElement('div');
+    tooltip.style.cssText = 'position:absolute;bottom:-30px;left:50%;transform:translateX(-50%);font-size:12px;color:rgba(123,182,255,0.7);font-family:Cinzel;white-space:nowrap;animation:fadeInOut 1.5s ease';
+    tooltip.textContent = charVariants[currentCharVariant].name;
+    charContainer.appendChild(tooltip);
+
+    setTimeout(() => tooltip.remove(), 1500);
+  });
 
   // Add gentle floating animation via CSS
   const style = document.createElement('style');
@@ -626,6 +672,11 @@ if (charContainer){
     @keyframes float {
       0%, 100% { transform: translateY(0px); }
       50% { transform: translateY(-8px); }
+    }
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+      50% { opacity: 1; }
+      100% { opacity: 0; transform: translateX(-50%) translateY(10px); }
     }
     .char-showcase { animation: float 4s ease-in-out infinite; }
   `;
