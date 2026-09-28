@@ -6,7 +6,15 @@
 *When the blade leaves its sheath, even fate must bow.*
 
 ```
-    ( 〆 )
+              ~  ～ ≈  ～  ~
+           ⚡    /\      ⚡
+              _/  \___
+             / ⚔️  \
+            |  冷   |
+             \ ︵ /
+              '---'
+           ~~~  ～   ≈
+        ～ ≈  ～  ≈  ～
 ```
 
 *homeless : the moon is my roof, the storm my blanket.*
