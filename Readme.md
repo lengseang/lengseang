@@ -6,40 +6,16 @@
 *When the blade leaves its sheath, even fate must bow.*
 
 ```
-                    ⚡
-              ~  ～ ≈ ～ ~  ⚡
-           
-           ≈ ～  ～  ～  ≈  ～
-         
-         ≈ ～             ～ ≈
-              
-         ~    ╱╲╱╲╱╲    ~
-        ≈    ╱      ╲   ≈
-             │   ⚔️   │
-        ~    │   冷   │    ~
-        ≈    │   刃   │    ≈
-             ╲      ╱
-              ╲╱︵╱╱
-               ′ ′
-        
-        ~  ≈ ～  ～  ～ ≈  ~
-           
-           ～ ≈    ≈  ～
-           
-        ⚡  ～ ≈  ～  ≈  ～  ⚡
-               
-        
-         ╭─────────────────╮
-         │  ≈ ～ 山 ～ ≈    │
-         │ ～ ≈ 山山 ≈ ～   │
-         │≈～  ████  ～ ≈~  │
-         │ ～≈ ██████ ≈ ～  │
-         ╰─────────────────╯
+    /\_/\
+   ( o.o )
+    > ^ <
+   /|   |\
+  (_|   |_)
 ```
 
 *homeless : the moon is my roof, the storm my blanket.*
 
 ---
 
-**[Explore the Blade](#)** · **[khemseangleng@gmail.com](mailto:khemseangleng@gmail.com)**
+**[khemseangleng@gmail.com](mailto:khemseangleng@gmail.com)**
 
