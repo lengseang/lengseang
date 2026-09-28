@@ -1,109 +1,77 @@
-# 冷 · LENG — The Sovereign Blade
+# Leng Seang — Full-Stack Developer
 
-> **"When the blade leaves its sheath, even fate must bow."**  
-> A software artisan crafting code as sharp as steel, elegant as calligraphy.
+> Crafting elegant solutions to complex problems.  
+> Building web experiences that are precise, purposeful, and beautiful.
 
----
-
-## 🗡️ About Me
-
-I'm a full-stack developer who believes in writing code that is **precise**, **elegant**, and **purposeful**. Like a sword immortal refining their Dao, I'm constantly evolving my craft—combining technical mastery with creative vision.
-
-**Journey:** From foundational scripting to full-stack systems, from UI poetry to backend architecture. Every line of code is a stroke; every project is a cultivation.
+**[Portfolio](https://lengseang.dev)** · **[LinkedIn](https://linkedin.com)** · **[Email](mailto:khemseangleng@gmail.com)**
 
 ---
 
-## ⚡ Core Competencies
+## 🎯 About
 
-### **劍技 · Blade Techniques** (Languages & Frameworks)
+I'm a full-stack developer passionate about clean code, thoughtful design, and creative problem-solving. I believe in writing software that is **readable**, **reliable**, and **maintainable**—code that other developers (and my future self) will appreciate.
 
-| Technique | Element | Realm |
-|-----------|---------|-------|
-| **JavaScript · TypeScript** | Heaven-Cleaving Slash | Sword Saint |
-| **Python** | Thunder Command | Grandmaster |
-| **React · Node.js** | Sword Domain | Master |
-| **HTML · CSS** | Formation Weaving | Master |
-| **Git · Linux** | Body Tempering | Adept |
-
-### **修行 · Areas of Cultivation**
-
-- **Frontend:** React, Vue, responsive design, animations, performance optimization
-- **Backend:** Node.js, REST APIs, database design, server architecture
-- **Tools & Workflow:** Git, Linux, Docker, CI/CD pipelines
-- **Specialties:** Creative coding, interactive experiences, elegant solutions
+With experience across frontend, backend, and DevOps, I enjoy working on projects that require both technical depth and creative thinking.
 
 ---
 
-## 📜 Featured Works
+## 🛠️ Tech Stack
 
-> *"The master's blade speaks for itself."*
+### Languages & Frameworks
+- **JavaScript/TypeScript** — React, Node.js, vanilla JS
+- **Python** — Flask, Django, data processing
+- **Frontend** — HTML5, CSS3, responsive design, animations
+- **Backend** — REST APIs, databases, server architecture
+- **DevOps** — Git, Linux, Docker, CI/CD pipelines
 
-### [**冷 · Interactive Blade Portal**](https://lengseang.github.io)
-An immersive, canvas-based interactive experience featuring:
-- **Real-time particle systems** with dynamic glyph rendering
-- **Donghua-style character design** with anime aesthetics (floating side panel)
-- **Interactive animations** — Click or press SPACE to slash through fate
-- **Web Audio API** integration for spatial sound design  
-- **Responsive canvas rendering** with performance optimization
-- **Poetic UI** blending Eastern aesthetics with modern web tech
-- **Floating kanji** and sword qi effects powered by living calligraphy
-
-**Stack:** Vanilla JavaScript, HTML5 Canvas, Web Audio API, SVG Graphics
-
-**Interactive Features:**
-- 🗡️ Click anywhere to draw your blade and cut through destiny
-- ⚡ Lightning responds to your strikes  
-- 🎨 Ink-wash mountains with parallax layers
-- 🌙 Dynamic weather system (wind, snow, mist)
-- 🔊 Spatial audio feedback (toggle with sound button)
-- 👤 Anime-style character with floating energy aura
+### Specialties
+- Full-stack web development
+- Interactive UI/UX implementations
+- Performance optimization
+- API design and integration
+- Creative coding & web art
 
 ---
 
-## 🔥 Currently Cultivating
+## 📂 Featured Projects
 
-A wandering immortal keeps a watchlist:
+**See all projects and detailed case studies at [lengseang.dev](https://lengseang.dev)**
 
-- 《劍來》 **Advanced Canvas & Graphics** — Mastering real-time rendering
-- 《霧山五行》 **System Design** — Building scalable architectures  
-- 《凡人修仙傳》 **Creative Coding** — Pushing web art boundaries
-- 《少年歌行》 **New Frameworks** — The Dao never stops evolving
-
----
-
-## 💡 Philosophy
-
-```
-"A sword saint does not chase destiny.
-He stands perfectly still—and destiny walks into the edge."
-```
-
-In code, this means:
-- **Clarity > Cleverness** — Code should be readable first
-- **Purpose > Perfection** — Ship what matters, refine what lives
-- **Elegance > Complexity** — Simple solutions scale better
-- **Growth > Mastery** — The journey teaches more than arrival
+- **[Project Name]** — Brief description and tech stack
+- **[Project Name]** — Brief description and tech stack
+- **[Project Name]** — Brief description and tech stack
 
 ---
 
-## 🌐 Let's Connect
+## 📖 What I'm Learning
 
-- **Portfolio:** [The Blade Interactive](./index.html)
-- **Email:** khemseangleng@gmail.com
-- **GitHub:** [@yourusername](https://github.com/yourusername)
+- Advanced system architecture & scalability patterns
+- Modern DevOps practices and infrastructure
+- Creative web experiences & generative art
+- New frameworks and emerging technologies
+
+---
+
+## 💼 Work Philosophy
+
+- **Clarity first** — Code should be readable before clever
+- **User-focused** — Build what matters to people
+- **Quality over quantity** — Prefer fewer, well-crafted features
+- **Continuous improvement** — Every project is a chance to learn
+
+---
+
+## 📬 Get In Touch
+
+- **Website:** [lengseang.dev](https://lengseang.dev)
+- **Email:** [khemseangleng@gmail.com](mailto:khemseangleng@gmail.com)
+- **GitHub:** [@lengseang](https://github.com/lengseang)
 
 ---
 
 <div align="center">
 
-### 「歸鞘」 · The Blade Returns to Its Sheath
-
-*The scroll ends. The Dao does not.*
-
-**A sword immortal is never truly gone—he is simply flying somewhere above the clouds, where the lightning is.**
-
-冷 · LENG — THE SOVEREIGN BLADE  
-*Fated to wield, destined to refine.*
+*Always learning, always building.*
 
 </div>
 
