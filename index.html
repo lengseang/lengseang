@@ -43,6 +43,11 @@
   .hint.gone{opacity:0!important}
   @keyframes hintIn{to{opacity:1}}
 
+  /* ---- character showcase ---- */
+  .char-showcase{position:fixed;bottom:120px;right:80px;width:200px;height:280px;pointer-events:none;z-index:2}
+  .char-svg{width:100%;height:100%;filter:drop-shadow(0 0 12px rgba(200,225,255,.4))}
+  @media(max-width:1024px){.char-showcase{display:none}}
+
   /* ---- sound toggle ---- */
   .hud{position:fixed;right:26px;bottom:24px;z-index:5}
   .hud button{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.16);
@@ -65,6 +70,8 @@
 
 <div class="poem">劍出鞘　天命俯首　雷霆為隨</div>
 <div class="hint" id="hint">click anywhere &mdash; draw the blade</div>
+
+<div class="char-showcase" id="charShowcase"></div>
 
 <div class="hud">
   <button id="snd" aria-label="toggle sound">
@@ -471,6 +478,158 @@ function slashSound(){
   og.gain.setValueAtTime(0.09, t0);
   og.gain.exponentialRampToValueAtTime(0.0008, t0 + 0.55);
   o.connect(og); og.connect(master); o.start(t0); o.stop(t0 + 0.6);
+}
+
+/* ───────────── donghua character showcase (side panel) ──────────────── */
+function createDonghuaCharacter(){
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('viewBox', '0 0 200 280');
+  svg.setAttribute('class', 'char-svg');
+  svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+
+  const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+  const grad = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
+  grad.setAttribute('id', 'swordGrad');
+  grad.setAttribute('x1', '0%');
+  grad.setAttribute('y1', '0%');
+  grad.setAttribute('x2', '0%');
+  grad.setAttribute('y2', '100%');
+
+  const stop1 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+  stop1.setAttribute('offset', '0%');
+  stop1.setAttribute('stop-color', '#e8ecf3');
+
+  const stop2 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+  stop2.setAttribute('offset', '100%');
+  stop2.setAttribute('stop-color', '#a8c5ff');
+
+  grad.appendChild(stop1);
+  grad.appendChild(stop2);
+  defs.appendChild(grad);
+  svg.appendChild(defs);
+
+  // Head & Hair (donghua style)
+  const head = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  head.setAttribute('cx', '100');
+  head.setAttribute('cy', '50');
+  head.setAttribute('r', '28');
+  head.setAttribute('fill', '#f5d5b8');
+  head.setAttribute('opacity', '0.95');
+  svg.appendChild(head);
+
+  // Hair - long flowing
+  const hairPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  hairPath.setAttribute('d', 'M 72 35 Q 65 55 68 90 Q 70 110 75 140 M 128 35 Q 135 55 132 90 Q 130 110 125 140');
+  hairPath.setAttribute('stroke', '#2a2a3a');
+  hairPath.setAttribute('stroke-width', '5');
+  hairPath.setAttribute('fill', 'none');
+  hairPath.setAttribute('stroke-linecap', 'round');
+  svg.appendChild(hairPath);
+
+  // Eyes (anime style)
+  const eyeL = document.createElementNS('http://www.w3.org/2000/svg', 'ellipse');
+  eyeL.setAttribute('cx', '85');
+  eyeL.setAttribute('cy', '48');
+  eyeL.setAttribute('rx', '6');
+  eyeL.setAttribute('ry', '9');
+  eyeL.setAttribute('fill', '#4a90e2');
+  svg.appendChild(eyeL);
+
+  const eyeR = document.createElementNS('http://www.w3.org/2000/svg', 'ellipse');
+  eyeR.setAttribute('cx', '115');
+  eyeR.setAttribute('cy', '48');
+  eyeR.setAttribute('rx', '6');
+  eyeR.setAttribute('ry', '9');
+  eyeR.setAttribute('fill', '#4a90e2');
+  svg.appendChild(eyeR);
+
+  // Eye shine (sparkle)
+  const shineL = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  shineL.setAttribute('cx', '87');
+  shineL.setAttribute('cy', '46');
+  shineL.setAttribute('r', '2');
+  shineL.setAttribute('fill', '#fff');
+  svg.appendChild(shineL);
+
+  const shineR = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  shineR.setAttribute('cx', '117');
+  shineR.setAttribute('cy', '46');
+  shineR.setAttribute('r', '2');
+  shineR.setAttribute('fill', '#fff');
+  svg.appendChild(shineR);
+
+  // Robe - elegant flowing style
+  const robePath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  robePath.setAttribute('d', 'M 72 75 L 60 120 Q 55 150 60 180 Q 65 210 75 240 L 100 255 L 125 240 Q 135 210 140 180 Q 145 150 140 120 L 128 75 Q 115 80 100 80 Q 85 80 72 75 Z');
+  robePath.setAttribute('fill', '#1a2332');
+  robePath.setAttribute('stroke', '#4a7bff');
+  robePath.setAttribute('stroke-width', '1.5');
+  svg.appendChild(robePath);
+
+  // Sword (held diagonally) - glowing
+  const swordBlade = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  swordBlade.setAttribute('d', 'M 110 30 L 160 -40 L 163 -38 L 112 35 Z');
+  swordBlade.setAttribute('fill', 'url(#swordGrad)');
+  swordBlade.setAttribute('filter', 'drop-shadow(0 0 8px #7bb6ff)');
+  svg.appendChild(swordBlade);
+
+  const swordHilt = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+  swordHilt.setAttribute('x', '108');
+  swordHilt.setAttribute('y', '30');
+  swordHilt.setAttribute('width', '6');
+  swordHilt.setAttribute('height', '12');
+  swordHilt.setAttribute('fill', '#8b6f47');
+  svg.appendChild(swordHilt);
+
+  // Energy aura around character
+  const aura = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  aura.setAttribute('cx', '100');
+  aura.setAttribute('cy', '140');
+  aura.setAttribute('r', '65');
+  aura.setAttribute('fill', 'none');
+  aura.setAttribute('stroke', '#7bb6ff');
+  aura.setAttribute('stroke-width', '1');
+  aura.setAttribute('opacity', '0.3');
+  svg.appendChild(aura);
+
+  // Random kanji floating around character
+  const kanji = ['劍', '冷', '天', '命', '風', '雷', '斬', '無'];
+  for (let i = 0; i < 4; i++){
+    const ch = kanji[Math.floor(Math.random() * kanji.length)];
+    const angle = (i / 4) * Math.PI * 2;
+    const x = 100 + Math.cos(angle) * 80;
+    const y = 140 + Math.sin(angle) * 80;
+
+    const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    text.setAttribute('x', x);
+    text.setAttribute('y', y);
+    text.setAttribute('font-family', 'Ma Shan Zheng, serif');
+    text.setAttribute('font-size', '16');
+    text.setAttribute('fill', 'rgba(123, 182, 255, 0.4)');
+    text.setAttribute('text-anchor', 'middle');
+    text.setAttribute('opacity', '0.6');
+    text.textContent = ch;
+    svg.appendChild(text);
+  }
+
+  return svg;
+}
+
+const charContainer = document.getElementById('charShowcase');
+if (charContainer){
+  const charSvg = createDonghuaCharacter();
+  charContainer.appendChild(charSvg);
+
+  // Add gentle floating animation via CSS
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    .char-showcase { animation: float 4s ease-in-out infinite; }
+  `;
+  document.head.appendChild(style);
 }
 
 /* ─────────────────────────── input ─────────────────────────── */

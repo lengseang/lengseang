@@ -38,14 +38,25 @@ I'm a full-stack developer who believes in writing code that is **precise**, **e
 
 > *"The master's blade speaks for itself."*
 
-### [**冷 · Interactive Blade Portal**](https://github.com/yourusername/leng-portfolio)
+### [**冷 · Interactive Blade Portal**](https://lengseang.github.io)
 An immersive, canvas-based interactive experience featuring:
-- Real-time particle systems and dynamic animations
-- Web Audio API integration for spatial sound design
-- Responsive canvas rendering with performance optimization
-- Poetic UI blending Eastern aesthetics with modern web tech
+- **Real-time particle systems** with dynamic glyph rendering
+- **Donghua-style character design** with anime aesthetics (floating side panel)
+- **Interactive animations** — Click or press SPACE to slash through fate
+- **Web Audio API** integration for spatial sound design  
+- **Responsive canvas rendering** with performance optimization
+- **Poetic UI** blending Eastern aesthetics with modern web tech
+- **Floating kanji** and sword qi effects powered by living calligraphy
 
-**Stack:** Vanilla JavaScript, HTML5 Canvas, Web Audio API
+**Stack:** Vanilla JavaScript, HTML5 Canvas, Web Audio API, SVG Graphics
+
+**Interactive Features:**
+- 🗡️ Click anywhere to draw your blade and cut through destiny
+- ⚡ Lightning responds to your strikes  
+- 🎨 Ink-wash mountains with parallax layers
+- 🌙 Dynamic weather system (wind, snow, mist)
+- 🔊 Spatial audio feedback (toggle with sound button)
+- 👤 Anime-style character with floating energy aura
 
 ---
 
