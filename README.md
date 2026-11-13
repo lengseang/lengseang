@@ -1,7 +1,7 @@
 <div align="center">
 
 <!-- Animated Header -->
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=28&duration=3000&pause=1000&color=38BDF8&center=true&vCenter=true&width=650&height=55&lines=LENG+SEANG;Full-Stack+%26+Systems+Engineer;Founder+of+The+Co-Author;Building+High-Throughput+Systems" alt="Typing Banner" />
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=28&duration=3000&pause=1000&color=38BDF8&center=true&vCenter=true&width=650&height=55&lines=LENG+SEANG;Full-Stack+%26+Systems+Engineer;Lead+Engineer+%40+The+Co-Author;Building+High-Throughput+Systems" alt="Typing Banner" />
 
 <p align="center">
   Full-stack and systems engineer building production web platforms, cross-platform mobile apps, and distributed execution engines.
@@ -75,7 +75,7 @@
 
 | System | Architecture & Engineering Focus | Stack |
 |---|---|---|
-| **[The Co-Author](https://www.thecoauthor.com)** | Co-authoring and content platform. Next.js on Vercel with apex-to-www edge redirects, PM2-managed NestJS API on Linux VPS, and on-demand sharp WebP resizing proxy for AWS S3 media. | Next.js 15 • NestJS • AWS S3 • PostgreSQL • PM2 |
+| **[The Co-Author](https://www.thecoauthor.com)** | Sole software engineer building the complete end-to-end platform. Next.js on Vercel with apex-to-www edge redirects, PM2-managed NestJS API on Linux VPS, and on-demand sharp WebP resizing proxy for AWS S3 media. | Next.js 15 • NestJS • AWS S3 • PostgreSQL • PM2 |
 | **LIVR Signals & Trading Engine** | Low-latency market streaming, regime detection, walk-forward edge refitting, and automated execution with strict risk-budgeting daemons. | Python 3.12 • WebSockets • Redis • Linux VPS |
 | **Mobile Applications** | Cross-platform production iOS and Android clients with native gesture handling, offline-first state synchronization, and strict 8pt spatial layout discipline. | React Native • Expo SDK • TypeScript • Tailwind |
 
