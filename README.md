@@ -20,17 +20,14 @@
 
 ### System Architecture
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                         FULL-STACK ARCHITECTURE                             │
-├─────────────────────────────────────────────────────────────────────────────┤
-│  Client Tier     │ Next.js 15 (App Router) • React 19 • Expo (React Native) │
-│  Edge & Gateway  │ Cloudflare DNS • Caddy SSL • Reverse Proxy Gateway       │
-│  Backend Core    │ NestJS (TypeScript) • Node.js • Python FastAPI • BullMQ  │
-│  Data & Cache    │ PostgreSQL (Prisma) • Redis In-Memory • AWS S3 Proxy     │
-│  Infrastructure  │ Linux VPS (Hostinger) • PM2 Daemons • Docker • Jenkins   │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
+| Tier | Focus & Capabilities | Technologies |
+|---|---|---|
+| **Client & UI** | SSR/SSG web platforms, reactive SPAs, and cross-platform mobile apps | Next.js 15 • Nuxt • Vue.js • React 19 • React Native (Expo) |
+| **Edge & Ingress** | DNS routing, SSL termination, reverse proxying, and CDN edge caching | Cloudflare • Caddy SSL • Nginx Gateway |
+| **Backend Core** | Modular microservices, high-throughput REST APIs, task queues, and WebSockets | NestJS • Express • Python FastAPI • BullMQ |
+| **Data & Storage** | Relational schemas, low-latency in-memory caching, and media proxy storage | PostgreSQL (Prisma) • Redis • AWS S3 • Firebase |
+| **Telemetry & Observability** | Real-time crash diagnostics, distributed tracing, and user event funnels | Sentry • PostHog • SonarQube |
+| **Infrastructure** | Process supervision, isolated daemons, containerization, and CI/CD pipelines | Linux VPS (Ubuntu) • PM2 • Docker • Jenkins • Vercel |
 
 ---
 
@@ -47,6 +44,8 @@
 
 #### Frontend & Mobile
 <img src="https://img.shields.io/badge/Next.js_15-09090b?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js" />
+<img src="https://img.shields.io/badge/Nuxt-09090b?style=for-the-badge&logo=nuxtdotjs&logoColor=00DC82" alt="Nuxt" />
+<img src="https://img.shields.io/badge/Vue.js-09090b?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D" alt="Vue.js" />
 <img src="https://img.shields.io/badge/React_19-09090b?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
 <img src="https://img.shields.io/badge/React_Native-09090b?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React Native" />
 <img src="https://img.shields.io/badge/Expo-09090b?style=for-the-badge&logo=expo&logoColor=white" alt="Expo" />
@@ -54,13 +53,17 @@
 
 #### Backend, Services & Data
 <img src="https://img.shields.io/badge/NestJS-09090b?style=for-the-badge&logo=nestjs&logoColor=E0234E" alt="NestJS" />
+<img src="https://img.shields.io/badge/Express-09090b?style=for-the-badge&logo=express&logoColor=white" alt="Express" />
 <img src="https://img.shields.io/badge/Node.js-09090b?style=for-the-badge&logo=nodedotjs&logoColor=5FA04E" alt="Node.js" />
 <img src="https://img.shields.io/badge/FastAPI-09090b?style=for-the-badge&logo=fastapi&logoColor=009688" alt="FastAPI" />
 <img src="https://img.shields.io/badge/PostgreSQL-09090b?style=for-the-badge&logo=postgresql&logoColor=4169E1" alt="PostgreSQL" />
 <img src="https://img.shields.io/badge/Redis-09090b?style=for-the-badge&logo=redis&logoColor=DC382D" alt="Redis" />
+<img src="https://img.shields.io/badge/Firebase-09090b?style=for-the-badge&logo=firebase&logoColor=FFCA28" alt="Firebase" />
 <img src="https://img.shields.io/badge/AWS_S3-09090b?style=for-the-badge&logo=amazons3&logoColor=569A31" alt="AWS S3" />
 
-#### DevOps & Infrastructure
+#### Observability & Infrastructure
+<img src="https://img.shields.io/badge/Sentry-09090b?style=for-the-badge&logo=sentry&logoColor=362D59" alt="Sentry" />
+<img src="https://img.shields.io/badge/PostHog-09090b?style=for-the-badge&logo=posthog&logoColor=FF9900" alt="PostHog" />
 <img src="https://img.shields.io/badge/Linux_Ubuntu-09090b?style=for-the-badge&logo=linux&logoColor=FCC624" alt="Linux" />
 <img src="https://img.shields.io/badge/Docker-09090b?style=for-the-badge&logo=docker&logoColor=2496ED" alt="Docker" />
 <img src="https://img.shields.io/badge/PM2-09090b?style=for-the-badge&logo=pm2&logoColor=2B037A" alt="PM2" />
@@ -76,7 +79,7 @@
 | System | Architecture & Engineering Focus | Stack |
 |---|---|---|
 | **AngkorMind** | AI video generation and timeline editing studio featuring an infinite interactive canvas workspace, automated generation pipelines, and asset rendering engines. | Next.js • React • Canvas / WebGL • Python • Video Pipelines |
-| **[The Co-Author](https://www.thecoauthor.com)** | Sole software engineer building the complete end-to-end platform. Next.js on Vercel with apex-to-www edge redirects, PM2-managed NestJS API on Linux VPS, and on-demand sharp WebP resizing proxy for AWS S3 media. | Next.js 15 • NestJS • AWS S3 • PostgreSQL • PM2 |
+| **[The Co-Author](https://www.thecoauthor.com)** | Sole software engineer building the complete end-to-end platform. Next.js on Vercel with apex-to-www edge redirects, PM2-managed NestJS API on Linux VPS, and on-demand sharp WebP resizing proxy for AWS S3 media. | Next.js 15 • NestJS • AWS S3 • PostgreSQL • PM2 • Sentry |
 | **LIVR Signals & Trading Engine** | Low-latency market streaming, regime detection, walk-forward edge refitting, and automated execution with strict risk-budgeting daemons. | Python 3.12 • WebSockets • Redis • Linux VPS |
 | **Mobile Applications** | Cross-platform production iOS and Android clients with native gesture handling, offline-first state synchronization, and strict 8pt spatial layout discipline. | React Native • Expo SDK • TypeScript • Tailwind |
 
